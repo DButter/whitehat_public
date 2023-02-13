@@ -974,3 +974,64 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 79.47 seconds
 ```
+
+## ftp-vsftpd-backdoor
+```
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-01-15 14:04 EST
+NSE: Loaded 46 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 14:04
+Completed NSE at 14:04, 0.00s elapsed
+Initiating NSE at 14:04
+Completed NSE at 14:04, 0.00s elapsed
+Initiating Ping Scan at 14:04
+Scanning 192.168.123.162 [2 ports]
+Completed Ping Scan at 14:04, 0.00s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 14:04
+Completed Parallel DNS resolution of 1 host. at 14:04, 0.00s elapsed
+Initiating Connect Scan at 14:04
+Scanning 192.168.123.162 [1 port]
+Discovered open port 21/tcp on 192.168.123.162
+Completed Connect Scan at 14:04, 0.00s elapsed (1 total ports)
+Initiating Service scan at 14:04
+Scanning 1 service on 192.168.123.162
+Completed Service scan at 14:04, 0.00s elapsed (1 service on 1 host)
+NSE: Script scanning 192.168.123.162.
+Initiating NSE at 14:04
+Completed NSE at 14:04, 1.00s elapsed
+Initiating NSE at 14:04
+Completed NSE at 14:04, 0.00s elapsed
+Nmap scan report for 192.168.123.162
+Host is up (0.00020s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 2.3.4
+| ftp-vsftpd-backdoor: 
+|   VULNERABLE:
+|   vsFTPd version 2.3.4 backdoor
+|     State: VULNERABLE (Exploitable)
+|     IDs:  BID:48539  CVE:CVE-2011-2523
+|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+|     Disclosure date: 2011-07-03
+|     Exploit results:
+|       Shell command: id
+|       Results: uid=0(root) gid=0(root)
+|       Shell command: ll
+|       Results: sh: line 2: ll: command not found
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+|       https://www.securityfocus.com/bid/48539
+|_      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+Service Info: OS: Unix
+
+NSE: Script Post-scanning.
+Initiating NSE at 14:04
+Completed NSE at 14:04, 0.00s elapsed
+Initiating NSE at 14:04
+Completed NSE at 14:04, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.33 seconds
+
+```
